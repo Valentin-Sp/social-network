@@ -1,0 +1,11 @@
+.nav {
+  grid-area: n;
+  background-color: chartreuse;
+  padding: 20px;
+}
+.item {
+  color: grey;
+}
+/*.item.activ {*/
+/*  color: red;*/
+/*}*/
