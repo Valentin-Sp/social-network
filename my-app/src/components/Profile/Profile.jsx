@@ -11,7 +11,7 @@ const Profile = () => {
                     alt="content"
                 />
             </div>
-            <div>Ava + descriprion</div>
+            <div className={s.Profile}>Ava + descriprion</div>
             <MyPosts/>
         </div>
     );
