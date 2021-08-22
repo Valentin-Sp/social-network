@@ -1,46 +1,26 @@
-const UPDATE_NEW_MESSAGE_BODY = 'UPDATE_NEW_MESSAGE_BODY';
-const SEND_MESSAGE = 'SEND_MESSAGE';
+const SET_USER_DATA = 'SET_USER_DATA'
 
 let initialState = {
-    messages: [
-        {id: 1, message: 'Hi'},
-        {id: 2, message: 'How is you learning?'},
-        {id: 3, message: 'Yo'},
-        {id: 4, message: 'Yo'},
-        {id: 5, message: 'How is you learning?'},
-    ],
-    dialogs: [
-        {id: 1, name: 'Dimych'},
-        {id: 2, name: 'Andrey'},
-        {id: 3, name: 'Sveta'},
-        {id: 4, name: 'Sasha'},
-        {id: 5, name: 'Viktor'},
-        {id: 6, name: 'Valera'}
-    ],
-    newMessageBody: ""
+    id: null,
+    email: null,
+    login: null,
+    isAuth: false,
 }
 
-const dialogsReducer = (state = initialState, action) => {
+const authReducer = (state = initialState, action) => {
     switch (action.type) {
-        case UPDATE_NEW_MESSAGE_BODY:
+        case SET_USER_DATA:
             return {
                 ...state,
-                newMessageBody: action.body
+                ...action.data,
+                isAuth: true
             }
-        case SEND_MESSAGE:
-            let body = state.newMessageBody;
-            return {
-                ...state,
-                newMessageBody: '',
-                messages: [...state.messages, {id: 6, message: body}]
-            };
+
         default:
-            return state;
+            return state
     }
 }
 
-export const sendMessageCreator = () => ({type: 'SEND_MESSAGE'})
-export const updateNewMessageBodyCreator = (body) =>
-    ({type: 'UPDATE_NEW_MESSAGE_BODY', body: body})
+export const setAuthUserData = (userId, email, login) => ({type: SET_USER_DATA, data: {userId, email, login}})
 
-export default dialogsReducer;
+export default authReducer
