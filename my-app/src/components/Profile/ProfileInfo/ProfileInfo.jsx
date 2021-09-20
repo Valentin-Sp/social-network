@@ -5,21 +5,15 @@ import ProfileStatus from "./ProfileStatus"
 import {updateStatus} from "../../../redux/profile-reducer";
 import ProfileStatusWithHooks from "./ProfileStatusWithHooks";
 
-const ProfileInfo = (props) => {
-    if (!props.profile) {
+const ProfileInfo = (profile, status, updateStatus) => {
+    if (!profile) {
         return <Preloader />
     }
     return (
         <div>
-            {/*<div>*/}
-            {/*    <img*/}
-            {/*        src="https://killerattitudestatus.in/wp-content/uploads/2019/12/gud-night-images.jpg"*/}
-            {/*        alt="content"*/}
-            {/*    />*/}
-            {/*</div>*/}
             <div className={s.descriptionBlock}>
-                <img src={props.profile.photos.large}/>
-                <ProfileStatusWithHooks status={props.status} updateStatus={props.updateStatus}/>
+                <img src={profile.photos.large}/>
+                <ProfileStatusWithHooks status={status} updateStatus={updateStatus}/>
             </div>
         </div>
     );
