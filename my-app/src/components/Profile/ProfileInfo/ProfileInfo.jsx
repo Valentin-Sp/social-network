@@ -5,7 +5,7 @@ import ProfileStatus from "./ProfileStatus"
 import {updateStatus} from "../../../redux/profile-reducer";
 import ProfileStatusWithHooks from "./ProfileStatusWithHooks";
 
-const ProfileInfo = (profile, status, updateStatus) => {
+const ProfileInfo = ({profile, status, updateStatus}) => {
     if (!profile) {
         return <Preloader />
     }
