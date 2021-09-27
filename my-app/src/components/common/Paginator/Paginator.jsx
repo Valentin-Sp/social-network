@@ -19,4 +19,3 @@ let Paginator = ({totalUsersCount, pageSize, currentPage, onPageChanged}) => {
 }
 
 export default Paginator;
-sada
