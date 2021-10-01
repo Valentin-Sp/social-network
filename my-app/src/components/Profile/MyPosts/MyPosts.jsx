@@ -18,7 +18,6 @@ function AddNewPostForm(props) {
                 <button>Add post</button>
             </div>
         </form>
-        <h1>Forma</h1>
     </div>
 }
 
